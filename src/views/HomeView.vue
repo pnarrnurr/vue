@@ -1,18 +1,18 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <SideMenu :menu="subMenu" />
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import SideMenu from '../components/SideMenu.vue';
 export default {
   name: 'HomeView',
+  data() {
+    return {
+      subMenu: this.$router.options.routes.find((item) => item.name == "Home").children
+    }
+  },
   components: {
-    HelloWorld
+    SideMenu
   }
 }
 </script>

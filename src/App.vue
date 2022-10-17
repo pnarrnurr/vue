@@ -39,4 +39,12 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.container-side {
+  width: 20%;
+}
+
+.container-side div a {
+  line-height: 30px;
+}
 </style>

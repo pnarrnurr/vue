@@ -1,17 +1,19 @@
+<!-- App.vue -->
 <template>
-  <div class="defaultPage">
-    <h1>This is an {{pageName}} page</h1>
-  </div>
+  <username-input :label="label" v-model="model" />
 </template>
 
 <script>
+import UsernameInput from '../components/UsernameInput.vue';
+
 export default {
-  name: "DefaultView",
-  props: {
-    pageName: {
-      type: String,
-      required: true,
-    },
+  name: 'RegiserView',
+  components: { UsernameInput },
+  data() {
+    return {
+      label: 'Username',
+      model: '',
+    };
   },
 }
 </script>

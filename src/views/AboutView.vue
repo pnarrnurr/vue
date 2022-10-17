@@ -1,5 +1,18 @@
 <template>
-  <div class="about">
-    <h1>This is an ABOUT page</h1>
-  </div>
+  <SideMenu :menu="subMenu" />
 </template>
+
+<script>
+import SideMenu from '../components/SideMenu.vue';
+export default {
+  name: 'AboutView',
+  data() {
+    return {
+      subMenu: this.$router.options.routes.find((item) => item.name == "About").children
+    }
+  },
+  components: {
+    SideMenu
+  }
+}
+</script>
