@@ -1,6 +1,6 @@
 <!-- App.vue -->
 <template>
-  <username-input :label="label" v-model="model" />
+  <username-input :label="label" />
 </template>
 
 <script>
@@ -11,8 +11,7 @@ export default {
   components: { UsernameInput },
   data() {
     return {
-      label: 'Username',
-      model: '',
+      label: 'Kullanıcı adı',
     };
   },
 }

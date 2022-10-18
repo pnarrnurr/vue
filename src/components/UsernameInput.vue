@@ -1,17 +1,17 @@
 <template>
     <label>
-        Username
-        <input type="text" name="username" v-model="username">
+        {{label}}
+        <input type="text" name="username" />
     </label>
 </template>
 
 <script>
 export default {
     name: 'UsernameInput',
-    data() {
-        return {
-            username: '',
-        };
-    },
+    props: {
+        label: {
+            type: String
+        }
+    }
 }
 </script>
