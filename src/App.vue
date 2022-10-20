@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <nav>
-      <router-link v-for="m in menu" :key="m.name" :to="m.path">{{m.name}}</router-link>
+      <router-link v-for="menuItem in menuList" :key="menuItem.name" :to="menuItem.path">
+        {{menuItem.meta.title}}
+      </router-link>
     </nav>
     <router-view />
   </div>
@@ -11,13 +13,17 @@
 export default {
   data() {
     return {
-      menu: this.$router.options.routes
+      menuList: this.$router.options.routes.filter((route) => route.meta.menu),
     }
   },
 }
 </script>
 
 <style>
+body {
+  margin: 0
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,24 +33,22 @@ export default {
 }
 
 nav {
-  padding: 30px;
+  height: 58px;
+  background: #2c3e50;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
-  padding: 10px;
+  color: #e2e2e2;
+  padding: 20px 15px;
 }
 
-nav a.router-link-exact-active {
+nav a.router-link-exact-active,
+nav a.router-link-active {
+  background-color: #e2e2e2;
   color: #42b983;
-}
-
-.container-side {
-  width: 20%;
-}
-
-.container-side div a {
-  line-height: 30px;
 }
 </style>

@@ -1,35 +1,28 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { DefaultView } from '../views';
-import About from './about';
-import Contact from './contact';
-import Home from './home';
+import home from './home';
+import about from './about';
+
 
 Vue.use(VueRouter)
 
 const routes = [
-  ...Home,
-  ...About,
-  ...Contact,
   {
-    path: '/login',
-    name: 'Login',
-    component: DefaultView,
-    props: {
-      pageName: "LOGIN"
+    path: '/',
+    redirect: {
+      name: 'home'
+    },
+    meta: {
+      menu: false
     }
   },
-  {
-    path: '/register',
-    name: 'Register',
-    component: DefaultView,
-    props: {
-      pageName: "REGISTER"
-    }
-  }
+  ...home,
+  ...about
 ]
 
 const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 

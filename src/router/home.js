@@ -1,27 +1,34 @@
 
-import { Home } from '../views';
+import { EmptyView, HomeFirstView, HomeSecondView } from '../views';
 
 export default [
 	{
-		path: '/',
-		name: 'Home',
-		component: Home,
+		path: '/home',
+		name: 'home',
+		redirect: {
+			name: 'home1'
+		},
+		meta: {
+			menu: true,
+			title: "Home"
+		},
+		component: EmptyView,
 		children: [
 			{
 				path: 'home1',
-				name: 'Home 1',
+				name: 'home1',
+				component: HomeFirstView,
+				meta: {
+					title: "Home 1"
+				}
 			},
 			{
 				path: 'home2',
-				name: 'Home 2',
-			},
-			{
-				path: 'home3',
-				name: 'Home 3',
-			},
-			{
-				path: 'home4',
-				name: 'Home 4',
+				name: 'home2',
+				component: HomeSecondView,
+				meta: {
+					title: "Home 2"
+				}
 			}
 		]
 	}

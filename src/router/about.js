@@ -1,23 +1,34 @@
 
-import { About } from '../views';
+import { EmptyView, AboutFirstView, AboutSecondView } from '../views';
 
 export default [
 	{
 		path: '/about',
-		name: 'About',
-		component: About,
+		name: 'about',
+		redirect: {
+			name: 'about1'
+		},
+		meta: {
+			menu: true,
+			title: "About"
+		},
+		component: EmptyView,
 		children: [
 			{
 				path: 'about1',
-				name: 'About 1',
+				name: 'about1',
+				component: AboutFirstView,
+				meta: {
+					title: "About 1"
+				}
 			},
 			{
 				path: 'about2',
-				name: 'About 2',
-			},
-			{
-				path: 'about3',
-				name: 'About 3',
+				name: 'about2',
+				component: AboutSecondView,
+				meta: {
+					title: "About 2"
+				}
 			}
 		]
 	}
