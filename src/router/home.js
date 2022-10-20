@@ -19,7 +19,8 @@ export default [
 				name: 'home1',
 				component: HomeFirstView,
 				meta: {
-					title: "Home 1"
+					title: 'Home 1',
+					parent: 'home'
 				}
 			},
 			{
@@ -27,7 +28,8 @@ export default [
 				name: 'home2',
 				component: HomeSecondView,
 				meta: {
-					title: "Home 2"
+					title: 'Home 2',
+					parent: 'home'
 				}
 			}
 		]

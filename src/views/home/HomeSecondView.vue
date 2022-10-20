@@ -1,12 +1,17 @@
 <template>
   <main class="main">
     <SideMenu :subMenuList="subMenuList" />
-    Home Second View
+    <div class="main-content">
+      <div>
+        <p>Home Second View</p>
+      </div>
+      <CustomInput />
+    </div>
   </main>
 </template>
 
 <script>
-import SideMenu from '../../components/SideMenu.vue';
+import { SideMenu, CustomInput } from '../../components';
 
 export default {
   name: 'HomeSecondView',
@@ -16,7 +21,8 @@ export default {
     }
   },
   components: {
-    SideMenu
+    SideMenu,
+    CustomInput
   }
 }
 </script>
@@ -24,5 +30,10 @@ export default {
 <style>
 .main {
   display: flex;
+}
+
+.main-content {
+  padding: 20px;
+  width: 100%;
 }
 </style>

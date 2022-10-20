@@ -10,7 +10,7 @@ export default [
 		},
 		meta: {
 			menu: true,
-			title: "About"
+			title: 'About'
 		},
 		component: EmptyView,
 		children: [
@@ -19,7 +19,8 @@ export default [
 				name: 'about1',
 				component: AboutFirstView,
 				meta: {
-					title: "About 1"
+					title: 'About 1',
+					parent: 'about'
 				}
 			},
 			{
@@ -27,7 +28,8 @@ export default [
 				name: 'about2',
 				component: AboutSecondView,
 				meta: {
-					title: "About 2"
+					title: 'About 2',
+					parent: 'about'
 				}
 			}
 		]

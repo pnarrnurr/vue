@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <nav>
-      <router-link v-for="menuItem in menuList" :key="menuItem.name" :to="menuItem.path">
+      <router-link v-for="menuItem in menuList" :key="menuItem.name" :to="menuItem.path"
+        :class="{ '-active': isActiveMenu(menuItem) }">
         {{menuItem.meta.title}}
       </router-link>
     </nav>
@@ -16,7 +17,18 @@ export default {
       menuList: this.$router.options.routes.filter((route) => route.meta.menu),
     }
   },
+  methods: {
+    isActiveMenu: function (item) {
+      if (typeof this.$router.currentRoute.meta.parent === "undefined") {
+        return false;
+      }
+      else {
+        return this.$router.currentRoute.meta.parent == item.name;
+      }
+    },
+  }
 }
+
 </script>
 
 <style>
@@ -46,8 +58,7 @@ nav a {
   padding: 20px 15px;
 }
 
-nav a.router-link-exact-active,
-nav a.router-link-active {
+nav a.-active {
   background-color: #e2e2e2;
   color: #42b983;
 }
